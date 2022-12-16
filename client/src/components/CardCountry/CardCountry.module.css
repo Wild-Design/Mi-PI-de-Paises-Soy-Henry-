@@ -1,0 +1,9 @@
+.cardContainer {
+  color: blueviolet;
+  cursor: pointer;
+}
+
+.img {
+  min-width: 200px;
+  max-width: 300px;
+}

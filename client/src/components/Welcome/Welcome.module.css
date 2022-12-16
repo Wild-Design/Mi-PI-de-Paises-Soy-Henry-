@@ -1,0 +1,11 @@
+.welcomeContainer {
+  color: blue;
+}
+
+.imgWelcome {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  z-index: -10;
+}

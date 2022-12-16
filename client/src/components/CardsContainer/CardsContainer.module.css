@@ -1,0 +1,17 @@
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 40px;
+  padding: 40px;
+  justify-content: space-between;
+}
+
+.link {
+  text-decoration: none;
+}
+
+@media (max-width: 560px) {
+  .cardsContainer {
+    grid-template-columns: 100%;
+  }
+}
