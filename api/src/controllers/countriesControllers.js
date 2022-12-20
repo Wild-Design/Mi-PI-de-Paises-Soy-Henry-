@@ -22,7 +22,7 @@ const getAllCountries = async (req, res) => {
           continent: countrie.continents[0],
           capital: countrie.capital
             ? REMOVE_ACENTS(countrie.capital[0])
-            : "No existe capital",
+            : "No tiene capital",
           subregion: countrie.subregion,
           area: countrie.area,
           population: countrie.population,

@@ -2,16 +2,19 @@ import Welcome from "./components/Welcome/Welcome.jsx";
 import Home from "./components/Home/Home.jsx";
 import FormActivities from "./components/FormActivities/FormActivities.jsx";
 import CountryDetail from "./components/CountryDetail/CountryDetail.jsx";
+import CardsActivitiesContainer from "./components/CardsActivitiesContainer/CardsActivitiesContainer.jsx";
+
 import { Routes, Route } from "react-router-dom";
 
 function App(props) {
   return (
     <div>
       <Routes>
-        <Route exact path="/" element={<Welcome />} />
-        <Route exact path="/home" element={<Home />} />
-        <Route exact path="/activities" element={<FormActivities />} />
-        <Route exact path="/detail/:id" element={<CountryDetail />} />
+        <Route path="/" element={<Welcome />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/formActivities" element={<FormActivities />} />
+        <Route path="/detail/:id" element={<CountryDetail />} />
+        <Route path="/activities" element={<CardsActivitiesContainer />} />
       </Routes>
     </div>
   );

@@ -5,6 +5,7 @@ export const GET_COUNTRIES_NAME = "GET_COUNTRIES_NAME";
 export const GET_COUNTRY_ID = "GET_COUNTRY_ID";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const POST_ACTIVITY = "POST_ACTIVITY";
+export const FILTER_CONTINENT = "FILTER_CONTINENT";
 export const ORDENAR_POR_LO_QUE_LLEGUE = "ORDENAR_POR_LO_QUE_LLEGUE";
 
 export const getAllCountries = (inputValue) => {
@@ -103,6 +104,13 @@ export const getActivities = () => {
   };
 };
 
+export const filterContinent = (inputValue) => {
+  return {
+    type: FILTER_CONTINENT,
+    payload: inputValue,
+  };
+};
+
 export const postActivity = (body) => {
   return async (dispatch) => {
     try {
@@ -118,9 +126,9 @@ export const postActivity = (body) => {
   };
 };
 
-export const ordenarPorLoQueLlegue = (inputValue) => {
-  return {
-    type: ORDENAR_POR_LO_QUE_LLEGUE,
-    payload: inputValue,
-  };
-};
+// export const ordenarPorLoQueLlegue = (inputValue) => {
+//   return {
+//     type: ORDENAR_POR_LO_QUE_LLEGUE,
+//     payload: inputValue,
+//   };
+// };
