@@ -8,14 +8,15 @@ const Paginado = ({ paisPorPagina, traerTodo, paginado }) => {
 
   return (
     <ul className={style.paginadoContainer}>
-      {numerosDePagina &&
-        numerosDePagina.map((numero) => {
-          return (
-            <li className={style.li} key={numero}>
-              <button className={style.buttons} onClick={() => paginado(numero)}>{numero}</button>
-            </li>
-          );
-        })}
+      {numerosDePagina?.map((numero) => {
+        return (
+          <li className={style.li} key={numero}>
+            <button className={style.buttons} onClick={() => paginado(numero)}>
+              {numero}
+            </button>
+          </li>
+        );
+      })}
     </ul>
   );
 };

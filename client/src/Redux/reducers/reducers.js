@@ -2,11 +2,14 @@ import {
   GET_ALL_COUNTRIES,
   GET_COUNTRIES_NAME,
   GET_COUNTRY_ID,
-  FILTRAR_POR_LO_QUE_LLEGUE,
+  GET_ACTIVITIES,
+  POST_ACTIVITY,
+  // ORDENAR_POR_LO_QUE_LLEGUE,
 } from "../actions/actions.js";
 
 const initialState = {
   countries: [],
+  countriesCopy: [],
   countryDetail: {},
 };
 
@@ -16,6 +19,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         countries: action.payload,
+        countriesCopy: action.payload,
       };
     case GET_COUNTRIES_NAME:
       return {
@@ -27,17 +31,34 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         countryDetail: action.payload,
       };
-    case FILTRAR_POR_LO_QUE_LLEGUE:
-      if (action.payload === "A-Z") {
-        const AZ = initialState.countries.sort((a, b) => {
-          return a.name.localeCompare(b.name);
-        });
-        return {
-          ...state,
-          countries: AZ,
-        };
-      }
-      break;
+    case GET_ACTIVITIES:
+      return {
+        ...state,
+        countries: action.payload,
+      };
+    case POST_ACTIVITY:
+      return {
+        ...state,
+      };
+    // case ORDENAR_POR_LO_QUE_LLEGUE:
+    //   const countries = state.countries;
+    //   if (action.payload === "A-Z") {
+    //     const AZ = countries.sort((a, b) => a.name.localeCompare(b.name));
+    //     console.log(AZ);
+    //     return {
+    //       ...state,
+    //       countries: AZ,
+    //     };
+    //   }
+    //   if (action.payload === "Z-A") {
+    //     const ZA = countries.sort((a, b) => b.name.localeCompare(a.name));
+    //     console.log(ZA);
+    //     return {
+    //       ...state,
+    //       countries: ZA,
+    //     };
+    //   }
+    //   break;
 
     default:
       return { ...state };

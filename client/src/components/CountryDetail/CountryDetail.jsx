@@ -24,8 +24,11 @@ const CountryDetail = () => {
       {traerDetalle.activities?.map((actividad) => {
         return (
           <div key={actividad.id}>
-            <h4>Actividades:</h4>
-            <h3>{`Nombre: ${actividad.name}`}</h3>
+            <h4>Actividad:</h4>
+            <img src={actividad.img} alt={actividad.name} />
+            <p>
+              Nombre: <strong>{`${actividad.name}`}</strong>
+            </p>
             <p>{`Dificultad: ${actividad.difficulty}`}</p>
             <p>{`Duracion: ${actividad.duration}`}</p>
             <p>{`Temporada: ${actividad.season}`}</p>
