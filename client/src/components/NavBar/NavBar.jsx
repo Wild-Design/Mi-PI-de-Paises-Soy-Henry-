@@ -1,31 +1,25 @@
 import style from "./NavBar.module.css";
 import Search from "../Search/Search";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getAllCountries,
-  getActivities,
-  filterContinent,
-} from "../../Redux/actions/actions";
+import { useDispatch } from "react-redux";
+import { getAllCountries, filterContinent } from "../../Redux/actions/actions";
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-
   // const ORDENAR = (event) => {
   //   const value = event.target.value;
   //   dispatch(ordenarPorLoQueLlegue(value));
   // };
 
-  const ORDENAMIENTOS = (event) => {
-    const value = event.target.value;
-    dispatch(getAllCountries(value));
-  };
-
   // const FILTRAR_ACTIVIDADES = (event) => {
   //   const value = event.target.checked;
   //   value ? dispatch(getActivities()) : dispatch(getAllCountries());
   // };
+  const dispatch = useDispatch();
+
+  const ORDENAMIENTOS = (event) => {
+    const value = event.target.value;
+    dispatch(getAllCountries(value));
+  };
 
   const FILTRAR_POR_CONTINENTE = (event) => {
     const value = event.target.value;

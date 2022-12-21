@@ -4,11 +4,39 @@ import { postActivity, getAllCountries } from "../../Redux/actions/actions";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const nameValidator = (input) => {
+const VALIDADOR = (input) => {
+  const validaQueSeanSoloLetras = new RegExp(/^[A-Z]+$/i);
+  const validaSoloNumerosEntre1Y5 = /^[1-5]$/;
   let errors = {};
+
   if (!input.name) {
     errors.name = "Nombre obligatorio";
+  } else if (!validaQueSeanSoloLetras.test(input.name)) {
+    errors.name = "Debe contener solo letras";
   }
+
+  if (!input.difficulty) {
+    errors.difficulty = "Campo obligatorio";
+  } else if (!validaSoloNumerosEntre1Y5.test(input.difficulty)) {
+    errors.difficulty = "Error, Solo se permiten usar las opciones disponibles";
+  }
+
+  if (!input.duration) {
+    errors.duration = "Campo obligatorio";
+  } else if (!parseInt(input.duration) || parseInt(input.duration) === NaN) {
+    errors.duration = "Solo se permiten numeros";
+  }
+
+  if (!input.season) {
+    errors.season = "Campo obligatorio";
+  } else if (
+    !["invierno", "verano", "otoño", "primavera", "todo el año"].includes(
+      input.season
+    )
+  ) {
+    errors.season = "Error, Solo se permiten usar las opciones disponibles";
+  }
+
   return errors;
 };
 
@@ -37,16 +65,13 @@ function FormActivities() {
     season: "",
   });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(postActivity(input));
-  };
-
   const handleInputChange = (event) => {
     const value = event.target.value;
     const propiedad = event.target.name;
     setInput({ ...input, [propiedad]: value });
+    setErrors(VALIDADOR({ ...input, [propiedad]: value }));
   };
+
   const handleCountriesId = (event) => {
     const value = event.target.value;
     setInput({
@@ -62,10 +87,7 @@ function FormActivities() {
       </Link>
 
       <h2>Crea actividades!</h2>
-      <form
-        onSubmit={(event) => handleSubmit(event)}
-        className={style.formContainer}
-      >
+      <form className={style.formContainer}>
         <div>
           <label htmlFor="name">Nombre de la actividad:</label>
           <input
@@ -76,8 +98,9 @@ function FormActivities() {
             placeholder="Escribe aqui..."
             onChange={handleInputChange}
           />
+          <p className={style.error}>{errors.name}</p>
         </div>
-        <div>
+        {/* <div>
           <label htmlFor="img">Añade una imagen si deseas:</label>
           <input
             type="url"
@@ -85,7 +108,7 @@ function FormActivities() {
             placeholder="Añade una url..."
             id="img"
           />
-        </div>
+        </div> */}
         <div>
           <label htmlFor="difficulty">Elige una dificultad:</label>
           <select
@@ -99,6 +122,7 @@ function FormActivities() {
             <option value={4}>4</option>
             <option value={5}>5</option>
           </select>
+          <p className={style.error}>{errors.difficulty}</p>
         </div>
         <div>
           <label htmlFor="duration">Duracion:</label>
@@ -107,9 +131,10 @@ function FormActivities() {
             name="duration"
             id="duration"
             min="0"
-            placeholder="Escribe aquí..."
+            placeholder="Elije duración..."
             onChange={handleInputChange}
           />
+          <p className={style.error}>{errors.duration}</p>
         </div>
         <div>
           <label htmlFor="season">Temporada:</label>
@@ -120,6 +145,7 @@ function FormActivities() {
             <option value="otoño">Otoño</option>
             <option value="primavera">Primavera</option>
           </select>
+          <p className={style.error}>{errors.season}</p>
         </div>
         <div>
           <label htmlFor="countriesId">Selecciona uno o varios paises:</label>
