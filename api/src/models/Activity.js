@@ -14,7 +14,6 @@ module.exports = (sequelize) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false, //No lo pide el readme
-        unique: true,
       },
       img: {
         type: DataTypes.TEXT,
@@ -38,7 +37,7 @@ module.exports = (sequelize) => {
           "otoño",
           "primavera",
           "todo el año"
-        ), //No lo pide el readme
+        ),
       },
     },
     {

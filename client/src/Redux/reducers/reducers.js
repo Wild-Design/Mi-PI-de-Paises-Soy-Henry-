@@ -13,6 +13,7 @@ const initialState = {
   countriesCopy: [],
   countryDetail: {},
   activities: [],
+  activitiesResponse: "",
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -56,6 +57,7 @@ const rootReducer = (state = initialState, action) => {
     case POST_ACTIVITY:
       return {
         ...state,
+        activitiesResponse: action.payload,
       };
     // case ORDENAR_POR_LO_QUE_LLEGUE:
     //   const countries = state.countries;

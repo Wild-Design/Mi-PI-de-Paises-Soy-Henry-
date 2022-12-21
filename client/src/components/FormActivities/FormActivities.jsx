@@ -23,8 +23,8 @@ const VALIDADOR = (input) => {
 
   if (!input.duration) {
     errors.duration = "Campo obligatorio";
-  } else if (!parseInt(input.duration) || parseInt(input.duration) === NaN) {
-    errors.duration = "Solo se permiten numeros";
+  } else if (!parseInt(input.duration)) {
+    errors.duration = "Solo se permiten numeros mayores a 0";
   }
 
   if (!input.season) {
@@ -41,6 +41,8 @@ const VALIDADOR = (input) => {
 };
 
 function FormActivities() {
+  // const RESPUESTA_DE_POST = useSelector((state) => state.activitiesResponse);
+
   const todosLosPaises = useSelector((state) => state.countries);
   const filtrar = todosLosPaises?.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -65,6 +67,8 @@ function FormActivities() {
     season: "",
   });
 
+  const [created, setCreated] = useState("");
+
   const handleInputChange = (event) => {
     const value = event.target.value;
     const propiedad = event.target.name;
@@ -80,14 +84,31 @@ function FormActivities() {
     });
   };
 
-  return (
+  const SUBMIT_VALIDATOR = async (event) => {
+    event.preventDefault();
+    if (Object.keys(errors).length === 0) {
+      dispatch(postActivity(input));
+      setCreated(true);
+    } else {
+      return alert("Debes completar todos los campos del formulario!");
+    }
+  };
+
+  return created ? (
+    <div className={style.createdContainer}>
+      <h3>ACTIVIDAD CREADA</h3>
+      <Link to="/home">
+        <button>Volver al Home</button>
+      </Link>
+    </div>
+  ) : (
     <>
       <Link to="/home">
         <button>⬅️Atrás</button>
       </Link>
 
-      <h2>Crea actividades!</h2>
-      <form className={style.formContainer}>
+      <h2>Crea actividades!{created}</h2>
+      <form onSubmit={SUBMIT_VALIDATOR} className={style.formContainer}>
         <div>
           <label htmlFor="name">Nombre de la actividad:</label>
           <input
@@ -100,15 +121,6 @@ function FormActivities() {
           />
           <p className={style.error}>{errors.name}</p>
         </div>
-        {/* <div>
-          <label htmlFor="img">Añade una imagen si deseas:</label>
-          <input
-            type="url"
-            name="img"
-            placeholder="Añade una url..."
-            id="img"
-          />
-        </div> */}
         <div>
           <label htmlFor="difficulty">Elige una dificultad:</label>
           <select
@@ -162,8 +174,8 @@ function FormActivities() {
               );
             })}
           </select>
+          <p className={style.error}>{errors.countriesId}</p>
         </div>
-
         <button type="submit">Crear actividad</button>
       </form>
     </>
