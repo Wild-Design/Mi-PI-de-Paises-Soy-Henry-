@@ -1,3 +1,5 @@
 .homeContainer {
-  color: chartreuse;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }

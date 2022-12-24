@@ -1,9 +1,59 @@
 .cardContainer {
   color: blueviolet;
+  background-color: #03182b;
   cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid rgb(231, 234, 246);
+  width: 250px;
+  height: 200px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  -webkit-box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
+  box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
+}
+
+.cardContainer:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  -webkit-box-shadow: -9px 7px 18px 10px rgba(231, 234, 246, 0.75);
+  -moz-box-shadow: -9px 7px 18px 10px rgba(231, 234, 246, 0.75);
+  box-shadow: -9px 7px 18px 10px rgba(231, 234, 246, 0.75);
 }
 
 .img {
-  min-width: 200px;
-  max-width: 300px;
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.titulosContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: #03182b;
+}
+.titulosContainer h3 {
+  font-size: 17px;
+  letter-spacing: 1px;
+  color: #e7eaf6;
+}
+
+.titulosContainer p {
+  font-size: 15px;
+  color: #d6d1e5;
 }

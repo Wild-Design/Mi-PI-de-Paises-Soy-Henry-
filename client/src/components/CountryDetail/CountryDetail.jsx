@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getCountryId } from "../../Redux/actions/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import style from "./CountryDetail.module.css";
 
 const CountryDetail = () => {
   const { id } = useParams();
@@ -20,13 +21,18 @@ const CountryDetail = () => {
       </Link>
 
       <div>
-        <span>{traerDetalle.id}</span>
-        <img src={traerDetalle.img[1]} alt={`Imagen de ${traerDetalle.name}`} />
-        <h3>{`Nombre: ${traerDetalle.name}`}</h3>
-        <p>{`Capital: ${traerDetalle.capital}`}</p>
-        <p>{`Subregion: ${traerDetalle.subregion}`}</p>
-        <p>{`Area: ${traerDetalle.area} km/2`}</p>
-        <p>{`Poblacion: ${traerDetalle.population} Personas`}</p>
+        <div>
+          <span>{traerDetalle.id}</span>
+          <img
+            src={traerDetalle.img[1]}
+            alt={`Imagen de ${traerDetalle.name}`}
+          />
+          <h3>{`Nombre: ${traerDetalle.name}`}</h3>
+          <p>{`Capital: ${traerDetalle.capital}`}</p>
+          <p>{`Subregion: ${traerDetalle.subregion}`}</p>
+          <p>{`Area: ${traerDetalle.area} km/2`}</p>
+          <p>{`Poblacion: ${traerDetalle.population} Personas`}</p>
+        </div>
         {traerDetalle.activities?.map((actividad) => {
           return (
             <div key={actividad.id}>

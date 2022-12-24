@@ -1,17 +1,14 @@
 .cardsContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
   gap: 40px;
+  width: 100vw;
   padding: 40px;
-  justify-content: space-between;
+  place-items: center;
+
+  padding-bottom: 110px; /*Puede joder*/
 }
 
 .link {
   text-decoration: none;
-}
-
-@media (max-width: 560px) {
-  .cardsContainer {
-    grid-template-columns: 100%;
-  }
 }
