@@ -28,6 +28,10 @@ const NavBar = () => {
   return (
     <nav>
       <div className={style.navBarContainer}>
+        <Link to="/">
+          <button className={style.btnVolver}>Volver al inicio</button>
+        </Link>
+        <Search />
         <div className={style.filtradosContainer}>
           <select onChange={ORDENAMIENTOS}>
             <option value={""}>Ordenar paises por:</option>
@@ -36,16 +40,6 @@ const NavBar = () => {
             <option value="A-Z">A-Z</option>
             <option value="Z-A">Z-A</option>
           </select>
-          {/* <div>
-          <label htmlFor="activities">Actividades creadas</label>
-          <input
-            type="checkbox"
-            name="activities"
-            id="activities"
-            value="Actividades"
-            onChange={FILTRAR_ACTIVIDADES}
-          />
-        </div> */}
           <select onChange={FILTRAR_POR_CONTINENTE}>
             <option value={""}>Filtrar por continente:</option>
             <option value="North America">North America</option>
@@ -57,7 +51,6 @@ const NavBar = () => {
             <option value="South America">South America</option>
           </select>
         </div>
-        <Search />
         <div className={style.activitiesContainer}>
           <Link to="/activities">
             <button>Ver Actividades Creadas</button>

@@ -9,8 +9,36 @@
   margin: -25px 0 0 -25px;
 }
 
+.elContainerPapa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .formContainer {
-  color: darkblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40%;
+  min-height: 80vh;
+  border: 1px solid #e7eaf6;
+  color: #e7eaf6;
+}
+
+.formContainer input {
+  padding: 10px;
+  width: 100%;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.idsContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .error {

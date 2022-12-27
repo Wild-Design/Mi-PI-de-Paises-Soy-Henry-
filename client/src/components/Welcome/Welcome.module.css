@@ -16,8 +16,8 @@
 }
 
 .boton {
-  width: 150px;
-  height: 50px;
+  width: 200px;
+  height: 70px;
   font-size: 25px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
@@ -26,7 +26,14 @@
   -o-border-radius: 20px;
   border: 1px solid #e7eaf6;
   color: #e7eaf6;
-  background-color: transparent;
+  text-shadow: -1px -1px 1px #333, 1px -1px 1px #333, -1px 1px 1px #333,
+    1px 1px 1px #333;
+  /* background-color: transparent; */
+  background-image: url(../../images/galaxiaWelcome.gif);
+  background-size: cover;
+  background-position: center;
+  background-size: auto;
+  background-position: center;
   box-shadow: -11px 11px 44px 0px rgba(233, 236, 247, 0.75);
   margin: 50px;
   padding: 5px;

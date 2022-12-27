@@ -1,11 +1,10 @@
 .cardContainer {
-  color: blueviolet;
   background-color: #03182b;
   cursor: pointer;
   border-radius: 10px;
   border: 1px solid rgb(231, 234, 246);
-  width: 250px;
-  height: 200px;
+  width: 230px;
+  height: 180px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -48,12 +47,12 @@
   background-color: #03182b;
 }
 .titulosContainer h3 {
-  font-size: 17px;
+  font-size: 15px;
   letter-spacing: 1px;
   color: #e7eaf6;
 }
 
 .titulosContainer p {
-  font-size: 15px;
+  font-size: 13px;
   color: #d6d1e5;
 }

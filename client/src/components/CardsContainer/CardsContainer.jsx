@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { getAllCountries } from "../../Redux/actions/actions";
 import { Link } from "react-router-dom";
 import Paginado from "../Paginado/Paginado";
+import NotFound2 from "../../images/NotFound2.gif";
 
 const CardsContainer = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,17 @@ const CardsContainer = () => {
       </section>
       <section className={style.cardsContainer}>
         {paisesActuales?.map((pais) => {
+          if (pais.id === "NotFound") {
+            return (
+              <Link key={pais.id} className={style.notFound} to={`/home`}>
+                <img src={NotFound2} alt="NotFound" />
+                <div>
+                  <h3>Pais no encontrado!</h3>
+                  <p>No hay coincidencias con ese nombre</p>
+                </div>
+              </Link>
+            );
+          }
           return (
             <Link
               key={pais.id}

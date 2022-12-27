@@ -129,86 +129,87 @@ function FormActivities() {
       <Link to="/home">
         <button>⬅️Atrás</button>
       </Link>
+      <div className={style.elContainerPapa}>
+        <h2>Crea actividades!{created}</h2>
+        <form onSubmit={SUBMIT_VALIDATOR} className={style.formContainer}>
+          <div>
+            <label htmlFor="name">Nombre de la actividad:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Escribe aqui..."
+              autoComplete="off"
+              onChange={handleInputChange}
+            />
+            <p className={errors.name && style.error}>{errors.name}</p>
+          </div>
+          <div className={style.idsContainer}>
+            <label htmlFor="countriesId">Selecciona uno o varios paises:</label>
+            <select
+              name="countriesId"
+              id="countriesId"
+              onChange={handleInputChange}
+            >
+              {filtrar?.map((pais) => {
+                return (
+                  <option key={pais.id} value={pais.id}>
+                    {pais.name}
+                  </option>
+                );
+              })}
+            </select>
+            <p className={errors.countriesId && style.error}>
+              {errors.countriesId}
+            </p>
+          </div>
+          <div>
+            <label htmlFor="difficulty">Elige una dificultad:</label>
+            <select
+              name="difficulty"
+              id="difficulty"
+              onChange={handleInputChange}
+            >
+              <option value={""}></option>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </select>
+            <p className={errors.difficulty && style.error}>
+              {errors.difficulty}
+            </p>
+          </div>
+          <div>
+            <label htmlFor="duration">Duracion:</label>
+            <input
+              type="number"
+              name="duration"
+              id="duration"
+              min="0"
+              placeholder="Elije duración..."
+              autoComplete="off"
+              onChange={handleInputChange}
+            />
+            <p className={errors.duration && style.error}>{errors.duration}</p>
+          </div>
+          <div>
+            <label htmlFor="season">Temporada:</label>
+            <select name="season" id="season" onChange={handleInputChange}>
+              <option value={""}></option>
+              <option value="todo el año">Todo el año</option>
+              <option value="invierno">Invierno</option>
+              <option value="verano">Verano</option>
+              <option value="otoño">Otoño</option>
+              <option value="primavera">Primavera</option>
+            </select>
+            <p className={errors.season && style.error}>{errors.season}</p>
+          </div>
 
-      <h2>Crea actividades!{created}</h2>
-      <form onSubmit={SUBMIT_VALIDATOR} className={style.formContainer}>
-        <div>
-          <label htmlFor="name">Nombre de la actividad:</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Escribe aqui..."
-            autoComplete="off"
-            onChange={handleInputChange}
-          />
-          <p className={errors.name && style.error}>{errors.name}</p>
-        </div>
-        <div>
-          <label htmlFor="countriesId">Selecciona uno o varios paises:</label>
-          <select
-            name="countriesId"
-            id="countriesId"
-            onChange={handleInputChange}
-          >
-            {filtrar?.map((pais) => {
-              return (
-                <option key={pais.id} value={pais.id}>
-                  {pais.name}
-                </option>
-              );
-            })}
-          </select>
-          <p className={errors.countriesId && style.error}>
-            {errors.countriesId}
-          </p>
-        </div>
-        <div>
-          <label htmlFor="difficulty">Elige una dificultad:</label>
-          <select
-            name="difficulty"
-            id="difficulty"
-            onChange={handleInputChange}
-          >
-            <option value={""}></option>
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-          </select>
-          <p className={errors.difficulty && style.error}>
-            {errors.difficulty}
-          </p>
-        </div>
-        <div>
-          <label htmlFor="duration">Duracion:</label>
-          <input
-            type="number"
-            name="duration"
-            id="duration"
-            min="0"
-            placeholder="Elije duración..."
-            autoComplete="off"
-            onChange={handleInputChange}
-          />
-          <p className={errors.duration && style.error}>{errors.duration}</p>
-        </div>
-        <div>
-          <label htmlFor="season">Temporada:</label>
-          <select name="season" id="season" onChange={handleInputChange}>
-            <option value={""}></option>
-            <option value="todo el año">Todo el año</option>
-            <option value="invierno">Invierno</option>
-            <option value="verano">Verano</option>
-            <option value="otoño">Otoño</option>
-            <option value="primavera">Primavera</option>
-          </select>
-          <p className={errors.season && style.error}>{errors.season}</p>
-        </div>
-
-        <button type="submit">Crear actividad</button>
-      </form>
+          <button type="submit">Crear actividad</button>
+        </form>
+      </div>
     </>
   );
 }

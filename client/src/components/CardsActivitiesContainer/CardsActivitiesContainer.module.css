@@ -1,0 +1,58 @@
+.container{
+  overflow: hidden;
+}
+
+.btnH2Container {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  padding: 10px;
+  font-size: 20px;
+  -webkit-box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
+  box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  cursor: pointer;
+  background-image: url("../../images/NotFound.gif");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgb(231, 234, 246);
+  color: rgb(231, 234, 246);
+  text-shadow: -1px -1px 1px #333, 1px -1px 1px #333, -1px 1px 1px #333,
+    1px 1px 1px #333;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.btn {
+  -webkit-box-shadow: -9px 7px 18px 10px rgba(231, 234, 246, 0.75);
+  -moz-box-shadow: -9px 7px 18px 10px rgba(231, 234, 246, 0.75);
+  box-shadow: -9px 7px 18px 10px rgba(231, 234, 246, 0.75);
+}
+
+.h2 {
+  color: rgb(231, 234, 246);
+  margin-top: 20px;
+}
+.activitiesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 40px;
+  width: 100vw;
+  padding: 40px;
+  place-items: center;
+}

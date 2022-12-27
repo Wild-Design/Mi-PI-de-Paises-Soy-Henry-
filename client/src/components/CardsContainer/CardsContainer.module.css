@@ -1,3 +1,43 @@
+.notFound {
+  position: absolute;
+  top: 280px;
+  margin-left: 50%;
+  margin-right: 50%;
+  color: rgb(231, 234, 246);
+  background-color: #03182b;
+  border-radius: 10px;
+  border: 1px solid rgb(231, 234, 246);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: 0.5s;
+  -webkit-box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
+  box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.notFound img {
+  object-fit: cover;
+  max-width: 500px;
+  max-height: 300px;
+}
+.notFound div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  gap: 10px;
+  width: 100%;
+  height: 100px;
+  background-color: #03182b;
+  background-size: cover;
+}
+
 .cardsContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
@@ -6,7 +46,7 @@
   padding: 40px;
   place-items: center;
 
-  padding-bottom: 110px; /*Puede joder*/
+  padding-bottom: 110px;
 }
 
 .link {

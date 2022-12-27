@@ -1,11 +1,17 @@
+import style from "./CardActivity.module.css";
+
 const CardActivity = ({ img, name, difficulty, duration, season }) => {
   return (
-    <div>
-      <img src={img} alt={name} />
-      <h3>{`Nombre: ${name}`}</h3>
-      <p>{`Dificultad: ${difficulty}`}</p>
-      <p>{`Duracion: ${duration}`}</p>
-      <p>{`Temporada: ${season}`}</p>
+    <div className={style.cardContainer}>
+      <div className={style.imgContainer}>
+        <img src={img} alt={name} />
+      </div>
+      <div className={style.parrafosContainer}>
+        <h4>{`Nombre: ${name}`}</h4>
+        <p>{`Dificultad: ${difficulty}`}</p>
+        <p>{`Duracion: ${duration}`}</p>
+        <p>{`Temporada: ${season}`}</p>
+      </div>
     </div>
   );
 };

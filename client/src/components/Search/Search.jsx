@@ -11,10 +11,12 @@ const Search = () => {
 
   return (
     <div className={style.searchContainer}>
+      <label htmlFor="search">Busca paises:🔍</label>
       <input
         onChange={(event) => handleInputChange(event)}
         type="text"
-        placeholder="Busca un pais aquí..."
+        id="search"
+        placeholder="Busca aquí..."
       />
     </div>
   );

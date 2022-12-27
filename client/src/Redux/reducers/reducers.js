@@ -5,6 +5,7 @@ import {
   GET_ACTIVITIES,
   FILTER_CONTINENT,
   POST_ACTIVITY,
+  FILTRAR_ACTIVIDAD_POR_NOMBRE,
   // ORDENAR_POR_LO_QUE_LLEGUE,
 } from "../actions/actions.js";
 
@@ -13,6 +14,7 @@ const initialState = {
   countriesCopy: [],
   countryDetail: {},
   activities: [],
+  activitiesCopy: [],
   activitiesResponse: "",
 };
 
@@ -38,6 +40,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         activities: action.payload,
+        activitiesCopy: action.payload,
       };
     case FILTER_CONTINENT:
       if (action.payload === "") {
@@ -58,6 +61,15 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         activitiesResponse: action.payload,
+      };
+
+    case FILTRAR_ACTIVIDAD_POR_NOMBRE:
+      const filtrar = state.activitiesCopy.filter((actividades) => {
+        return actividades.name === action.payload;
+      });
+      return {
+        ...state,
+        activities: filtrar,
       };
     // case ORDENAR_POR_LO_QUE_LLEGUE:
     //   const countries = state.countries;

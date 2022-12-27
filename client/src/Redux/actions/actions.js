@@ -7,6 +7,7 @@ export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const POST_ACTIVITY = "POST_ACTIVITY";
 export const FILTER_CONTINENT = "FILTER_CONTINENT";
 export const ORDENAR_POR_LO_QUE_LLEGUE = "ORDENAR_POR_LO_QUE_LLEGUE";
+export const FILTRAR_ACTIVIDAD_POR_NOMBRE = "FILTRAR_ACTIVIDAD_POR_NOMBRE";
 
 export const getAllCountries = (inputValue) => {
   return async (dispatch) => {
@@ -123,6 +124,13 @@ export const postActivity = (body) => {
     } catch (error) {
       return { error: error.message };
     }
+  };
+};
+
+export const filtrarActividadPorNombre = (value) => {
+  return {
+    type: FILTRAR_ACTIVIDAD_POR_NOMBRE,
+    payload: value,
   };
 };
 
