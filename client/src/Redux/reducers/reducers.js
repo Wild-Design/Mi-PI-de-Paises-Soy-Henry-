@@ -67,29 +67,17 @@ const rootReducer = (state = initialState, action) => {
       const filtrar = state.activitiesCopy.filter((actividades) => {
         return actividades.name === action.payload;
       });
-      return {
-        ...state,
-        activities: filtrar,
-      };
-    // case ORDENAR_POR_LO_QUE_LLEGUE:
-    //   const countries = state.countries;
-    //   if (action.payload === "A-Z") {
-    //     const AZ = countries.sort((a, b) => a.name.localeCompare(b.name));
-    //     console.log(AZ);
-    //     return {
-    //       ...state,
-    //       countries: AZ,
-    //     };
-    //   }
-    //   if (action.payload === "Z-A") {
-    //     const ZA = countries.sort((a, b) => b.name.localeCompare(a.name));
-    //     console.log(ZA);
-    //     return {
-    //       ...state,
-    //       countries: ZA,
-    //     };
-    //   }
-    //   break;
+      if (action.payload === "") {
+        return {
+          ...state,
+          activities: state.activitiesCopy,  //Esto lo hago para reestablecer las actividades
+        };
+      } else {
+        return {
+          ...state,
+          activities: filtrar,
+        };
+      }
 
     default:
       return { ...state };

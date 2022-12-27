@@ -8,7 +8,7 @@ function FormActivities() {
   // const RESPUESTA_DE_POST = useSelector((state) => state.activitiesResponse);
 
   const VALIDADOR = (input) => {
-    const validaQueSeanSoloLetras = new RegExp(/^[A-Z]+$/i);
+    const validaQueSeanSoloLetras = new RegExp("[a-zA-Z ]{2,254}");
     const validaSoloNumerosEntre1Y5 = /^[1-5]$/;
 
     if (!input.name) {
@@ -129,21 +129,24 @@ function FormActivities() {
       <Link to="/home">
         <button>⬅️Atrás</button>
       </Link>
-      <div className={style.elContainerPapa}>
-        <h2>Crea actividades!{created}</h2>
+      <h2>Crea actividades!{created}</h2>
+      <div className={style.container}>
         <form onSubmit={SUBMIT_VALIDATOR} className={style.formContainer}>
           <div>
-            <label htmlFor="name">Nombre de la actividad:</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Escribe aqui..."
-              autoComplete="off"
-              onChange={handleInputChange}
-            />
+            <div className={style.nameContainer}>
+              <label htmlFor="name">Nombre de la actividad:</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Escribe aqui..."
+                autoComplete="off"
+                onChange={handleInputChange}
+              />
+            </div>
             <p className={errors.name && style.error}>{errors.name}</p>
           </div>
+
           <div className={style.idsContainer}>
             <label htmlFor="countriesId">Selecciona uno o varios paises:</label>
             <select
@@ -163,51 +166,61 @@ function FormActivities() {
               {errors.countriesId}
             </p>
           </div>
-          <div>
-            <label htmlFor="difficulty">Elige una dificultad:</label>
-            <select
-              name="difficulty"
-              id="difficulty"
-              onChange={handleInputChange}
-            >
-              <option value={""}></option>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
-            </select>
-            <p className={errors.difficulty && style.error}>
-              {errors.difficulty}
-            </p>
+
+          <div className={style.pequeñosContainer}>
+            <div className={style.difficultyContainer}>
+              <label htmlFor="difficulty">Elige una dificultad:</label>
+              <select
+                name="difficulty"
+                id="difficulty"
+                onChange={handleInputChange}
+              >
+                <option value={""}></option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+              </select>
+              <p className={errors.difficulty && style.error}>
+                {errors.difficulty}
+              </p>
+            </div>
+            <div>
+              <div className={style.seasonContainer}>
+                <label htmlFor="season">Temporada:</label>
+                <select name="season" id="season" onChange={handleInputChange}>
+                  <option value={""}></option>
+                  <option value="todo el año">Todo el año</option>
+                  <option value="invierno">Invierno</option>
+                  <option value="verano">Verano</option>
+                  <option value="otoño">Otoño</option>
+                  <option value="primavera">Primavera</option>
+                </select>
+                <p className={errors.season && style.error}>{errors.season}</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <label htmlFor="duration">Duracion:</label>
-            <input
-              type="number"
-              name="duration"
-              id="duration"
-              min="0"
-              placeholder="Elije duración..."
-              autoComplete="off"
-              onChange={handleInputChange}
-            />
+          <div className={style.durationContainer}>
+            <div className={style.labelDuration}>
+              <label htmlFor="duration">Duracion:</label>
+              <input
+                type="number"
+                name="duration"
+                id="duration"
+                min="0"
+                placeholder="Elije duración..."
+                autoComplete="off"
+                onChange={handleInputChange}
+              />
+            </div>
             <p className={errors.duration && style.error}>{errors.duration}</p>
           </div>
-          <div>
-            <label htmlFor="season">Temporada:</label>
-            <select name="season" id="season" onChange={handleInputChange}>
-              <option value={""}></option>
-              <option value="todo el año">Todo el año</option>
-              <option value="invierno">Invierno</option>
-              <option value="verano">Verano</option>
-              <option value="otoño">Otoño</option>
-              <option value="primavera">Primavera</option>
-            </select>
-            <p className={errors.season && style.error}>{errors.season}</p>
+          <div className={style.submitContainer}>
+            <button className={style.submit} type="submit">
+              Crear actividad
+            </button>
           </div>
-
-          <button type="submit">Crear actividad</button>
         </form>
       </div>
     </>

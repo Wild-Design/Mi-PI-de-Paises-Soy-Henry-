@@ -9,39 +9,106 @@
   margin: -25px 0 0 -25px;
 }
 
-.elContainerPapa {
+.container {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 .formContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 40%;
+  width: 500px;
   min-height: 80vh;
+  border-radius: 50px;
   border: 1px solid #e7eaf6;
   color: #e7eaf6;
+  background-color: #03182b;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
 }
 
 .formContainer input {
   padding: 10px;
-  width: 100%;
+  width: 200px;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
+.formContainer select {
+  width: 200px;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.nameContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
+.pequeñosContainer {
+  display: flex;
+  justify-content: space-around;
+}
+.pequeñosContainer select {
+  width: 150px;
+  height: 40px;
+  text-align: center;
+}
+.difficultyContainer {
+  display: flex;
+  flex-direction: column;
+}
+.seasonContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.countriesContainer {
+  display: flex;
+  justify-content: center;
+}
 .idsContainer {
   display: flex;
   flex-direction: column;
 }
 
+.durationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.labelDuration {
+  display: flex;
+  flex-direction: column;
+}
 .error {
   color: red;
   font-size: 15px;
+}
+
+.submitContainer {
+  display: flex;
+  justify-content: center;
+}
+.submit {
+  width: 150px;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }

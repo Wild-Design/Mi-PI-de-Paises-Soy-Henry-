@@ -96,6 +96,7 @@
 
 .imgDetail {
   object-fit: cover;
+  width: 100%;
   max-width: 500px;
   max-height: 400px;
 }

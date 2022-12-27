@@ -1,18 +1,20 @@
-.container{
+.container {
   overflow: hidden;
 }
 
 .btnH2Container {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 20px;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin-top: 20px;
 }
 
 .btn {
-  position: absolute;
+  /* position: absolute;
   top: 20px;
-  left: 20px;
+  left: 20px; */
   width: 150px;
   padding: 10px;
   font-size: 20px;
@@ -38,16 +40,41 @@
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
 }
-.btn {
+.btn:hover {
   -webkit-box-shadow: -9px 7px 18px 10px rgba(231, 234, 246, 0.75);
   -moz-box-shadow: -9px 7px 18px 10px rgba(231, 234, 246, 0.75);
   box-shadow: -9px 7px 18px 10px rgba(231, 234, 246, 0.75);
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
 }
 
 .h2 {
   color: rgb(231, 234, 246);
   margin-top: 20px;
 }
+
+.selectContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(231, 234, 246);
+}
+.select {
+  width: 150px;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  font-size: 16px;
+  text-align: justify;
+}
+
 .activitiesContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));

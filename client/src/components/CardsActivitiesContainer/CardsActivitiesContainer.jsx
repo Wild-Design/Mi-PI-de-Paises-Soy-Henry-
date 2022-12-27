@@ -36,16 +36,25 @@ const CardsActivitiesContainer = () => {
           <button className={style.btn}>⬅️Atras</button>
         </Link>
         <h2 className={style.h2}>Actividades</h2>
+        <div className={style.selectContainer}>
+          <label htmlFor="activities">Filtrar por nombre:</label>
+          <select
+            className={style.select}
+            id="activities"
+            onChange={handleSelect}
+          >
+            <option value={""}>Todas</option>
+            {nombresDeActividades?.map((actividad) => {
+              return (
+                <option key={actividad} value={actividad}>
+                  {actividad}
+                </option>
+              );
+            })}
+          </select>
+        </div>
       </div>
-      <select onChange={handleSelect}>
-        {nombresDeActividades?.map((actividad) => {
-          return (
-            <option key={actividad} value={actividad}>
-              {actividad}
-            </option>
-          );
-        })}
-      </select>
+
       <section className={style.activitiesContainer}>
         {allActivities?.map((actividad) => {
           return (
