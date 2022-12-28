@@ -114,3 +114,12 @@
   -moz-box-shadow: -5px 4px 5px 0px rgba(231, 234, 246, 0.75);
   transform: scale(1.2);
 }
+
+
+@media screen  and (max-width:430px) {
+  .navBarContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

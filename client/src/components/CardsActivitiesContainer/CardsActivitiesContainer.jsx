@@ -29,46 +29,53 @@ const CardsActivitiesContainer = () => {
     const value = event.target.value;
     dispatch(filtrarActividadPorNombre(value));
   };
+
   return (
-    <div className={style.container}>
-      <div className={style.btnH2Container}>
-        <Link to="/home">
-          <button className={style.btn}>⬅️Atras</button>
-        </Link>
-        <h2 className={style.h2}>Actividades</h2>
-        <div className={style.selectContainer}>
-          <label htmlFor="activities">Filtrar por nombre:</label>
-          <select
-            className={style.select}
-            id="activities"
-            onChange={handleSelect}
-          >
-            <option value={""}>Todas</option>
-            {nombresDeActividades?.map((actividad) => {
+    <div>
+      {allActivities.length === 0 ? (
+        <h1>No hay nada</h1>
+      ) : (
+        <div className={style.container}>
+          <div className={style.btnH2Container}>
+            <Link to="/home">
+              <button className={style.btn}>⬅️Atras</button>
+            </Link>
+            <h2 className={style.h2}>Actividades</h2>
+            <div className={style.selectContainer}>
+              <label htmlFor="activities">Filtrar por nombre:</label>
+              <select
+                className={style.select}
+                id="activities"
+                onChange={handleSelect}
+              >
+                <option value={""}>Todas</option>
+                {nombresDeActividades?.map((actividad) => {
+                  return (
+                    <option key={actividad} value={actividad}>
+                      {actividad}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+          </div>
+
+          <section className={style.activitiesContainer}>
+            {allActivities?.map((actividad) => {
               return (
-                <option key={actividad} value={actividad}>
-                  {actividad}
-                </option>
+                <CardActivity
+                  key={actividad.id}
+                  img={actividad.img}
+                  name={actividad.name}
+                  difficulty={actividad.difficulty}
+                  duration={actividad.duration}
+                  season={actividad.season}
+                />
               );
             })}
-          </select>
+          </section>
         </div>
-      </div>
-
-      <section className={style.activitiesContainer}>
-        {allActivities?.map((actividad) => {
-          return (
-            <CardActivity
-              key={actividad.id}
-              img={actividad.img}
-              name={actividad.name}
-              difficulty={actividad.difficulty}
-              duration={actividad.duration}
-              season={actividad.season}
-            />
-          );
-        })}
-      </section>
+      )}
     </div>
   );
 };

@@ -119,18 +119,29 @@ function FormActivities() {
 
   return created ? (
     <div className={style.createdContainer}>
-      <h3>ACTIVIDAD CREADA</h3>
-      <Link to="/home">
-        <button>Volver al Home</button>
-      </Link>
+      <div className={style.created}>
+        <h3>Actividad creada correctamente :)</h3>
+        <div>
+          <p>Puedes buscarla aquí ⬇️</p>
+          <Link to="/activities">
+            <button>Ver actividades</button>
+          </Link>
+        </div>
+        <div>
+          <p>O puedes regresar al home</p>
+          <Link to="/home">
+            <button>Regresar al Home</button>
+          </Link>
+        </div>
+      </div>
     </div>
   ) : (
     <>
       <Link to="/home">
-        <button>⬅️Atrás</button>
+        <button className={style.btn}>⬅️Atrás</button>
       </Link>
-      <h2>Crea actividades!{created}</h2>
       <div className={style.container}>
+        <h2 className={style.h2}>Crea actividades!{created}</h2>
         <form onSubmit={SUBMIT_VALIDATOR} className={style.formContainer}>
           <div>
             <div className={style.nameContainer}>
@@ -143,10 +154,9 @@ function FormActivities() {
                 autoComplete="off"
                 onChange={handleInputChange}
               />
+              <p className={errors.name && style.error}>{errors.name}</p>
             </div>
-            <p className={errors.name && style.error}>{errors.name}</p>
           </div>
-
           <div className={style.idsContainer}>
             <label htmlFor="countriesId">Selecciona uno o varios paises:</label>
             <select
@@ -213,8 +223,10 @@ function FormActivities() {
                 autoComplete="off"
                 onChange={handleInputChange}
               />
+              <p className={errors.duration && style.error}>
+                {errors.duration}
+              </p>
             </div>
-            <p className={errors.duration && style.error}>{errors.duration}</p>
           </div>
           <div className={style.submitContainer}>
             <button className={style.submit} type="submit">

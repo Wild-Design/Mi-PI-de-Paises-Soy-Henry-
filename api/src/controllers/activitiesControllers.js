@@ -31,7 +31,7 @@ const getAllActivities = async (req, res) => {
   try {
     const ACTIVITIES = await Activity.findAll();
     if (!ACTIVITIES.length)
-      return res.status(200).send("No hay actividades creadas");
+      return res.status(404).send("No hay actividades creadas");
     return res.status(200).send(ACTIVITIES);
   } catch (error) {
     res.status(400).send(error.message);

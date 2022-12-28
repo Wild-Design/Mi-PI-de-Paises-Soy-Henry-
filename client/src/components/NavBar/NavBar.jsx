@@ -53,7 +53,7 @@ const NavBar = () => {
         </div>
         <div className={style.activitiesContainer}>
           <Link to="/activities">
-            <button>Ver Actividades Creadas</button>
+            <button>Actividades Creadas</button>
           </Link>
           <Link to="/formActivities">
             <button>Crear Actividad</button>

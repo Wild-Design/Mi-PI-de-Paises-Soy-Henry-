@@ -20,7 +20,6 @@ const CountryDetail = () => {
       <Link to="/home">
         <button className={style.boton}>⬅️Atras</button>
       </Link>
-
       <div className={style.allContainer}>
         <div className={style.detailContainer}>
           <div>

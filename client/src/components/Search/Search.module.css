@@ -7,7 +7,15 @@
 
 .searchContainer label {
   font-size: 18px;
+  padding: 8px;
   text-align: center;
+  border-top: 1px solid #e7eaf6;
+  border-right: 1px solid #e7eaf6;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 .searchContainer input {
   border-radius: 10px;
