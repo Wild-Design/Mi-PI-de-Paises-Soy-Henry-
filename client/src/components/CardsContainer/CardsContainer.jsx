@@ -10,8 +10,10 @@ import NotFound2 from "../../images/NotFound2.gif";
 const CardsContainer = () => {
   const dispatch = useDispatch();
   const traerTodo = useSelector((state) => state.countries);
+
   const [paginaActual, setPaginaActual] = useState(1);
   const [paisPorPagina] = useState(10);
+
   const indiceDelUltimoPais = paginaActual * paisPorPagina;
   const indiceDelPrimerPais = indiceDelUltimoPais - paisPorPagina;
   const paisesActuales = traerTodo.slice(
@@ -26,6 +28,9 @@ const CardsContainer = () => {
   useEffect(() => {
     dispatch(getAllCountries());
   }, [dispatch]);
+  useEffect(() => {
+    setPaginaActual(1);
+  }, [traerTodo]);
 
   return (
     <div>
@@ -38,7 +43,7 @@ const CardsContainer = () => {
       </section>
       <section className={style.cardsContainer}>
         {paisesActuales?.map((pais) => {
-          if (pais.id === "NotFound") {
+          if (pais.id === "No encontrado") {
             return (
               <Link key={pais.id} className={style.notFound} to={`/home`}>
                 <img src={NotFound2} alt="NotFound" />

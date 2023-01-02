@@ -1,7 +1,7 @@
 const { Activity } = require("../db");
 
 const createActivitie = async (req, res) => {
-  const { name, countriesId, difficulty } = req.body;
+  const { countriesId, name, difficulty, duration, season } = req.body;
   try {
     if (!name)
       return res.status(400).send("El nombre de la actividad es obligatorio ");
@@ -11,15 +11,26 @@ const createActivitie = async (req, res) => {
 
     if (difficulty < 0 || difficulty > 5)
       return res.status(400).send("La dificultad debe ser entre 1 y 5");
-    if (countriesId) {
+    if (countriesId.length) {
       countriesId.forEach((id) => {
         if (id.length !== 3)
           return res
             .status(400)
             .send("Los ID de paises deben contener solo 3 letras");
       });
-      const activity = await Activity.create(req.body);
-      await activity.addCountries(countriesId);
+
+      const limpiarDuplicados = countriesId.filter((id, index) => {
+        return countriesId.indexOf(id) === index;
+      });
+
+      const activity = await Activity.create({
+        countriesId: limpiarDuplicados,
+        name: name,
+        difficulty: difficulty,
+        duration: duration,
+        season: season,
+      });
+      await activity.addCountries(limpiarDuplicados);
       res.status(201).send("Actividad creada correctamente");
     }
   } catch (error) {
@@ -38,7 +49,24 @@ const getAllActivities = async (req, res) => {
   }
 };
 
+const deleteActivity = async (req, res) => {
+  const { id } = req.body;
+  try {
+    const DELETE_ACTIVITY = await Activity.destroy({
+      where: { id: id },
+    });
+    if (DELETE_ACTIVITY === 1) {
+      return res.status(200).send("Actividad borrada correctamente!");
+    } else {
+      return res.status(400).send("Posible id invalido, no se a borrado nada!");
+    }
+  } catch (error) {
+    return res.status(400).send(error.message);
+  }
+};
+
 module.exports = {
   createActivitie,
   getAllActivities,
+  deleteActivity,
 };

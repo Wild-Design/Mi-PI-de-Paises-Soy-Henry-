@@ -3,9 +3,11 @@ import {
   GET_COUNTRIES_NAME,
   GET_COUNTRY_ID,
   GET_ACTIVITIES,
+  DELETE_ACTIVITY,
   FILTER_CONTINENT,
   POST_ACTIVITY,
   FILTRAR_ACTIVIDAD_POR_NOMBRE,
+  MOSTRAR_PAISES_DEL_FORM,
   // ORDENAR_POR_LO_QUE_LLEGUE,
 } from "../actions/actions.js";
 
@@ -15,7 +17,8 @@ const initialState = {
   countryDetail: {},
   activities: [],
   activitiesCopy: [],
-  activitiesResponse: "",
+  activitiesResponse: "", //La idea era usar este estado para responder de la respuesta del back
+  paisesDelForm: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -41,6 +44,10 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         activities: action.payload,
         activitiesCopy: action.payload,
+      };
+    case DELETE_ACTIVITY:
+      return {
+        ...state,
       };
     case FILTER_CONTINENT:
       if (action.payload === "") {
@@ -70,7 +77,7 @@ const rootReducer = (state = initialState, action) => {
       if (action.payload === "") {
         return {
           ...state,
-          activities: state.activitiesCopy,  //Esto lo hago para reestablecer las actividades
+          activities: state.activitiesCopy, //Esto lo hago para reestablecer las actividades
         };
       } else {
         return {
@@ -78,6 +85,12 @@ const rootReducer = (state = initialState, action) => {
           activities: filtrar,
         };
       }
+
+    case MOSTRAR_PAISES_DEL_FORM:
+      return {
+        ...state,
+        paisesDelForm: [...state.paisesDelForm, action.payload],
+      };
 
     default:
       return { ...state };

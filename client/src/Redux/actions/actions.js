@@ -5,9 +5,11 @@ export const GET_COUNTRIES_NAME = "GET_COUNTRIES_NAME";
 export const GET_COUNTRY_ID = "GET_COUNTRY_ID";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const POST_ACTIVITY = "POST_ACTIVITY";
+export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 export const FILTER_CONTINENT = "FILTER_CONTINENT";
 export const ORDENAR_POR_LO_QUE_LLEGUE = "ORDENAR_POR_LO_QUE_LLEGUE";
 export const FILTRAR_ACTIVIDAD_POR_NOMBRE = "FILTRAR_ACTIVIDAD_POR_NOMBRE";
+export const MOSTRAR_PAISES_DEL_FORM = "MOSTRAR_PAISES_DEL_FORM";
 
 export const getAllCountries = (inputValue) => {
   return async (dispatch) => {
@@ -134,9 +136,29 @@ export const filtrarActividadPorNombre = (value) => {
   };
 };
 
-// export const ordenarPorLoQueLlegue = (inputValue) => {
-//   return {
-//     type: ORDENAR_POR_LO_QUE_LLEGUE,
-//     payload: inputValue,
-//   };
-// };
+export const mostrarPaisesDelForm = (nombre) => {
+  return {
+    type: MOSTRAR_PAISES_DEL_FORM,
+    payload: nombre,
+  };
+};
+
+export const deleteActivity = (id) => {
+  return async (dispatch) => {
+    try {
+      const DELETE = axios({
+        method: "delete",
+        url: "http://localhost:3001/activities",
+        data: {
+          id: id,
+        },
+      });
+      return dispatch({
+        type: DELETE_ACTIVITY,
+        payload: DELETE,
+      });
+    } catch (error) {
+      return { error: error.message };
+    }
+  };
+};

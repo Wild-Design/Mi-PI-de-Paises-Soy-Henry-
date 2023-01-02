@@ -47,7 +47,7 @@ const getAllCountries = async (req, res) => {
       } else {
         return res.status(200).send([
           {
-            id: "NotFound",
+            id: "No encontrado",
             name: "No encontrado!",
             img: "https://pbs.twimg.com/profile_images/1162926462170804224/rAO9Rm0N_400x400.jpg",
             continent: "Not Found",

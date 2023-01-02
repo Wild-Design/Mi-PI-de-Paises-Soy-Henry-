@@ -1,6 +1,10 @@
 import style from "./FormActivities.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { postActivity, getAllCountries } from "../../Redux/actions/actions";
+import {
+  postActivity,
+  getAllCountries,
+  mostrarPaisesDelForm,
+} from "../../Redux/actions/actions";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -63,6 +67,7 @@ function FormActivities() {
   const todosLosPaises = useSelector((state) => state.countries);
   const filtrar = todosLosPaises?.sort((a, b) => a.name.localeCompare(b.name));
 
+  const paisesAgregados = useSelector((state) => state.paisesDelForm); //Estos son los que se agregan en el form
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCountries());
@@ -77,11 +82,11 @@ function FormActivities() {
   });
 
   const [errors, setErrors] = useState({
-    countriesId: "Campo requerido",
-    name: "Campo requerido",
-    difficulty: "Campo requerido",
-    duration: "Campo requerido",
-    season: "Campo requerido",
+    countriesId: "Requerido",
+    name: "Requerido",
+    difficulty: "Requerido",
+    duration: "Requerido",
+    season: "Requerido",
   });
 
   const [created, setCreated] = useState("");
@@ -95,6 +100,7 @@ function FormActivities() {
         countriesId: [...input.countriesId, value],
       });
       setErrors(VALIDADOR({ countriesId: [...input.countriesId, value] }));
+      dispatch(mostrarPaisesDelForm(value));
     } else {
       setInput({ ...input, [propiedad]: value });
       setErrors(VALIDADOR({ ...input, [propiedad]: value }));
@@ -121,6 +127,7 @@ function FormActivities() {
     <div className={style.createdContainer}>
       <div className={style.created}>
         <h3>Actividad creada correctamente :)</h3>
+        <span>😁</span>
         <div>
           <p>Puedes buscarla aquí ⬇️</p>
           <Link to="/activities">
@@ -130,7 +137,7 @@ function FormActivities() {
         <div>
           <p>O puedes regresar al home</p>
           <Link to="/home">
-            <button>Regresar al Home</button>
+            <button className={style.ultimoBoton}>Regresar al Home</button>
           </Link>
         </div>
       </div>
@@ -141,7 +148,7 @@ function FormActivities() {
         <button className={style.btn}>⬅️Atrás</button>
       </Link>
       <div className={style.container}>
-        <h2 className={style.h2}>Crea actividades!{created}</h2>
+        <h2 className={style.h2}>Crea una activiadad turística{created}</h2>
         <form onSubmit={SUBMIT_VALIDATOR} className={style.formContainer}>
           <div>
             <div className={style.nameContainer}>
@@ -166,7 +173,7 @@ function FormActivities() {
             >
               {filtrar?.map((pais) => {
                 return (
-                  <option key={pais.id} value={pais.id}>
+                  <option key={pais.id} name={pais.name} value={pais.id}>
                     {pais.name}
                   </option>
                 );
@@ -235,6 +242,13 @@ function FormActivities() {
           </div>
         </form>
       </div>
+      <section>
+        <ul>
+          {paisesAgregados?.map((pais) => (
+            <li key={pais}>{pais}</li>
+          ))}
+        </ul>
+      </section>
     </>
   );
 }

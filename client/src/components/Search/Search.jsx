@@ -16,6 +16,7 @@ const Search = () => {
         onChange={(event) => handleInputChange(event)}
         type="text"
         id="search"
+        autoComplete="off"
         placeholder="Busca aquí..."
       />
     </div>

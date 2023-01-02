@@ -8,6 +8,7 @@
 }
 .created {
   color: #e7eaf6;
+  background-color: #03182b;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -23,6 +24,10 @@
 }
 .created h3 {
   font-size: 27px;
+  margin-top: 30px;
+}
+.created span {
+  font-size: 50px;
 }
 .created p {
   text-align: center;
@@ -39,6 +44,17 @@
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
   font-size: 25px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.created button:hover {
+  background-color: rgb(147, 152, 231);
+}
+.ultimoBoton {
+  margin-bottom: 30px;
 }
 
 .btn {
@@ -98,8 +114,11 @@
   min-height: 80vh;
   border-radius: 50px;
   border: 1px solid #e7eaf6;
-  color: #e7eaf6;
-  background-color: #03182b;
+  color: #e7ecf6;
+  /* background-color: #03182b; */
+  background-image: url("../../images/backgroundFormulario.jpg");
+  background-size: cover;
+  background-position: center;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
@@ -181,8 +200,19 @@
   align-items: center;
 }
 .error {
-  color: red;
-  font-size: 17px;
+  display: inline-block;
+  color: rgb(176, 253, 146);
+  text-shadow: -1px -1px 1px #333, 1px -1px 1px #333, -1px 1px 1px #333,
+    1px 1px 1px #333;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  border-bottom: 1px solid #e7eaf6;
+  font-size: 16px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .submitContainer {
@@ -199,4 +229,13 @@
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
   cursor: pointer;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.submit:hover {
+  background-color: rgb(112, 112, 236);
 }

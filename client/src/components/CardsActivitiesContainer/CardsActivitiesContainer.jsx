@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import {
   getActivities,
   filtrarActividadPorNombre,
+  deleteActivity,
 } from "../../Redux/actions/actions";
 import { useSelector, useDispatch } from "react-redux";
 import style from "./CardsActivitiesContainer.module.css";
@@ -30,10 +31,30 @@ const CardsActivitiesContainer = () => {
     dispatch(filtrarActividadPorNombre(value));
   };
 
+  const delete_activity = (id) => {
+    dispatch(deleteActivity(id));
+  };
   return (
     <div>
       {allActivities.length === 0 ? (
-        <h1>No hay nada</h1>
+        <div className={style.createdContainer}>
+          <div className={style.created}>
+            <h3>Aun no hay actividades creadas</h3>
+            <span>🙄</span>
+            <div>
+              <p>Puedes crearlas aquí ⬇️</p>
+              <Link to="/formActivities">
+                <button>Crear Actividad</button>
+              </Link>
+            </div>
+            <div>
+              <p>O puedes regresar al home</p>
+              <Link to="/home">
+                <button className={style.ultimoBoton}>Regresar al Home</button>
+              </Link>
+            </div>
+          </div>
+        </div>
       ) : (
         <div className={style.container}>
           <div className={style.btnH2Container}>
@@ -64,6 +85,7 @@ const CardsActivitiesContainer = () => {
             {allActivities?.map((actividad) => {
               return (
                 <CardActivity
+                  funcionBorradora={() => delete_activity(actividad.id)}
                   key={actividad.id}
                   img={actividad.img}
                   name={actividad.name}
