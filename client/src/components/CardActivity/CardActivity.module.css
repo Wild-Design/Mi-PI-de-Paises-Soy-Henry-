@@ -16,7 +16,6 @@
   -webkit-box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
   box-shadow: -9px 0px 24px 12px rgba(0, 0, 0, 0.75);
-  margin-bottom: 50px;
 }
 .cardContainer:hover {
   -webkit-box-shadow: -9px 7px 18px 10px rgba(231, 234, 246, 0.75);

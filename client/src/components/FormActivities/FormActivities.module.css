@@ -1,3 +1,8 @@
+p {
+  z-index: 180;
+  color: #e7eaf6;
+}
+
 .createdContainer {
   display: flex;
   justify-content: center;
@@ -57,7 +62,15 @@
   margin-bottom: 30px;
 }
 
+.imagen {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
 .btn {
+  position: absolute;
+  z-index: 50;
   width: 150px;
   padding: 10px;
   margin-top: 30px;
@@ -98,7 +111,6 @@
 
 .container {
   display: flex;
-  flex-direction: column;
   width: 100%;
   min-height: 80vh;
   display: flex;
@@ -107,29 +119,38 @@
   font-size: 18px;
 }
 .formContainer {
+  z-index: 20;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-top: 20px;
   width: 500px;
   min-height: 80vh;
-  border-radius: 50px;
+  border-radius: 30px;
   border: 1px solid #e7eaf6;
   color: #e7ecf6;
-  /* background-color: #03182b; */
-  background-image: url("../../images/backgroundFormulario.jpg");
+  background-color: #03182ba9;
   background-size: cover;
   background-position: center;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
 }
-
+.coso {
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .h2 {
+  margin-top: 20px;
   color: #e7eaf6;
   margin-bottom: 10px;
+  z-index: 20;
 }
 .formContainer input {
+  background-color: #e7eaf6;
   font-size: 16px;
   margin: 5px;
   padding: 10px;
@@ -140,7 +161,15 @@
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .formContainer select {
+  background-color: #e7eaf6;
   font-size: 16px;
   width: 200px;
   padding: 10px;
@@ -238,4 +267,31 @@
 
 .submit:hover {
   background-color: rgb(112, 112, 236);
+}
+
+.ulContainer {
+  z-index: 50;
+}
+.nombresDePaises {
+  background-color: #03182bcc;
+  color: #e7eaf6;
+  padding: 15px;
+  list-style: none;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.nombresDePaises li {
+  text-align: center;
+  margin: 10px;
+  padding: 5px;
+  border-bottom: 1px solid #e7eaf6;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }

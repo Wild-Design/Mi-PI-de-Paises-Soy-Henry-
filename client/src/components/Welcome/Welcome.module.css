@@ -12,7 +12,14 @@
 }
 
 .titulo {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 5px;
   font-size: 50px;
+  margin-bottom: 30px;
+}
+.subtitulo {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  letter-spacing: 5px;
 }
 
 .boton {

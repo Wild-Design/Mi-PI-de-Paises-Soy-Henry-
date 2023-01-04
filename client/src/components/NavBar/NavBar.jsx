@@ -52,11 +52,11 @@ const NavBar = () => {
           </select>
         </div>
         <div className={style.activitiesContainer}>
-          <Link to="/activities">
-            <button>Actividades Creadas</button>
-          </Link>
           <Link to="/formActivities">
             <button>Crear Actividad</button>
+          </Link>
+          <Link to="/activities">
+            <button>Actividades Creadas</button>
           </Link>
         </div>
       </div>

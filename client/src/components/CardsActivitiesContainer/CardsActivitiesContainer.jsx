@@ -84,15 +84,31 @@ const CardsActivitiesContainer = () => {
           <section className={style.activitiesContainer}>
             {allActivities?.map((actividad) => {
               return (
-                <CardActivity
-                  funcionBorradora={() => delete_activity(actividad.id)}
-                  key={actividad.id}
-                  img={actividad.img}
-                  name={actividad.name}
-                  difficulty={actividad.difficulty}
-                  duration={actividad.duration}
-                  season={actividad.season}
-                />
+                <div className={style.elContainerDeTodo}>
+                  <CardActivity
+                    funcionBorradora={() => delete_activity(actividad.id)}
+                    key={actividad.id}
+                    img={actividad.img}
+                    name={actividad.name}
+                    difficulty={actividad.difficulty}
+                    duration={actividad.duration}
+                    season={actividad.season}
+                  />
+                  <div className={style.paisesContainer}>
+                    {actividad.countries?.map((pais) => {
+                      return (
+                        <div className={style.paises}>
+                          <Link
+                            className={style.link}
+                            to={`/detail/${pais.id}`}
+                          >
+                            <p>{pais.name}</p>
+                          </Link>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               );
             })}
           </section>

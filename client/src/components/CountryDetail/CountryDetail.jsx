@@ -18,7 +18,7 @@ const CountryDetail = () => {
   return Object.entries(traerDetalle).length > 0 ? (
     <div>
       <Link to="/home">
-        <button className={style.boton}>⬅️Atras</button>
+        <button className={style.boton}>⬅️Home</button>
       </Link>
       <div className={style.allContainer}>
         <div className={style.detailContainer}>

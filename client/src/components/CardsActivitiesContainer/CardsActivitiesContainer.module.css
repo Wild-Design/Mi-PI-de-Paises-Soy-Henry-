@@ -59,6 +59,9 @@
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   overflow: hidden;
 }
 
@@ -136,10 +139,55 @@
 }
 
 .activitiesContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-  gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
   width: 100vw;
-  padding: 40px;
-  place-items: center;
+  min-height: 80vh;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.elContainerDeTodo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid #e7eaf6;
+  border-radius: 10px;
+  width: 600px;
+  background-color: #03182b;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.paisesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #e7eaf6;
+  border-radius: 10px 0 0 10px;
+  text-align: center;
+  width: 230px;
+  height: 285px;
+  overflow: auto;
+  -webkit-border-radius: 10px 0 0 10px;
+  -moz-border-radius: 10px 0 0 10px;
+  -ms-border-radius: 10px 0 0 10px;
+  -o-border-radius: 10px 0 0 10px;
+  row-gap: 15px;
+}
+.paises {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.link {
+  text-decoration: none;
 }
