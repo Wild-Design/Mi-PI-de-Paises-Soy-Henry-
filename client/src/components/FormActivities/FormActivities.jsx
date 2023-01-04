@@ -279,7 +279,9 @@ function FormActivities() {
                 <li key={index}>{nombre}</li>
               ))}
             </ul>
-            <button onClick={limpiarPaises}>Recetear</button>
+            <button className={style.resetear} onClick={limpiarPaises}>
+              Resetear
+            </button>
           </div>
         ) : (
           <span></span>

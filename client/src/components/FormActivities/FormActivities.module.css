@@ -270,6 +270,9 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .ulContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 50;
 }
 .nombresDePaises {
@@ -294,4 +297,28 @@ input[type="number"]::-webkit-outer-spin-button {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+}
+
+.resetear {
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: #03182bcc;
+  color: #cdbcf6;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+.resetear:hover {
+  color: rgb(176, 253, 146);
+  background-color: #03182b;
 }

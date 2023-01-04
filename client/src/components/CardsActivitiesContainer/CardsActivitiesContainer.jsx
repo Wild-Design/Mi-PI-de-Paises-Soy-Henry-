@@ -8,6 +8,7 @@ import {
 } from "../../Redux/actions/actions";
 import { useSelector, useDispatch } from "react-redux";
 import style from "./CardsActivitiesContainer.module.css";
+import Flechas from "../../images/flechas.png";
 
 const CardsActivitiesContainer = () => {
   const dispatch = useDispatch();
@@ -61,7 +62,7 @@ const CardsActivitiesContainer = () => {
             <Link to="/home">
               <button className={style.btn}>⬅️Atras</button>
             </Link>
-            <h2 className={style.h2}>Actividades</h2>
+            {/* <h2 className={style.h2}>Actividades</h2> */}
             <div className={style.selectContainer}>
               <label htmlFor="activities">Filtrar por nombre:</label>
               <select
@@ -80,33 +81,39 @@ const CardsActivitiesContainer = () => {
               </select>
             </div>
           </div>
-
           <section className={style.activitiesContainer}>
             {allActivities?.map((actividad) => {
               return (
                 <div className={style.elContainerDeTodo}>
-                  <CardActivity
-                    funcionBorradora={() => delete_activity(actividad.id)}
-                    key={actividad.id}
-                    img={actividad.img}
-                    name={actividad.name}
-                    difficulty={actividad.difficulty}
-                    duration={actividad.duration}
-                    season={actividad.season}
-                  />
-                  <div className={style.paisesContainer}>
-                    {actividad.countries?.map((pais) => {
-                      return (
-                        <div className={style.paises}>
-                          <Link
-                            className={style.link}
-                            to={`/detail/${pais.id}`}
-                          >
-                            <p>{pais.name}</p>
-                          </Link>
-                        </div>
-                      );
-                    })}
+                  <div className={style.alfa}>
+                    <span>Actividad:</span>
+                    <CardActivity
+                      funcionBorradora={() => delete_activity(actividad.id)}
+                      key={actividad.id}
+                      img={actividad.img}
+                      name={actividad.name}
+                      difficulty={actividad.difficulty}
+                      duration={actividad.duration}
+                      season={actividad.season}
+                    />
+                  </div>
+                  <img className={style.flechas} src={Flechas} alt="Flechas" />
+                  <div className={style.omega}>
+                    <span>Pertenece a:</span>
+                    <div className={style.paisesContainer}>
+                      {actividad.countries?.map((pais) => {
+                        return (
+                          <div className={style.paises}>
+                            <Link
+                              className={style.link}
+                              to={`/detail/${pais.id}`}
+                            >
+                              <p>{pais.name}</p>
+                            </Link>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               );
